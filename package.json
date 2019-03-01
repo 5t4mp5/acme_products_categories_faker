@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "DATABASE_URL=postgres://localhost/acme_products_categories_faker ./node_modules/mocha/bin/mocha ./db/db.spec.js --watch",
     "start:dev": "DATABASE_URL=postgres://localhost/acme_products_categories_faker nodemon server.js",
     "start:dbTest": "DATABASE_URL=postgres://localhost/acme_products_categories_faker nodemon ./db/db.js"
   },
@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
     "faker": "^4.1.0",
+    "mocha": "^6.0.2",
     "nodemon": "^1.18.10",
     "pg": "^7.8.1",
     "sequelize": "^4.42.1"

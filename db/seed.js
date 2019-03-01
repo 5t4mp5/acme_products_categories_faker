@@ -1,9 +1,9 @@
-const { addProduct, addCategory } = require("./db");
+const { Category } = require("./db");
 
 const items = [...new Array(3)];
 
 module.exports = () => {
-  return items.map(() => {
-    addCategory().then(cat => items.map(() => addProduct(cat)));
-  });
+  return Promise.all(items.map(() => {
+    return Category.add().then(cat => items.map(() => cat.addProduct()));
+  }));
 };
