@@ -10,8 +10,4 @@ const Product = db.define("product", {
   }
 });
 
-Product.prototype.delete = function() {
-  Product.destroy({where:{id: this.id}});
-};
-
 module.exports = Product;

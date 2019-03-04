@@ -6,9 +6,11 @@ Category.hasMany(Product);
 Product.belongsTo(Category);
 
 function createProduct(catId) {
-  return Product.create({ name: faker.commerce.productName(), categoryId: catId });
-};
-
+  return Product.create({
+    name: faker.commerce.productName(),
+    categoryId: catId
+  });
+}
 
 function deleteCat(catId) {
   return Product.destroy({ where: { categoryId: catId } })
@@ -16,4 +18,8 @@ function deleteCat(catId) {
     .catch(ex => console.err(ex.message));
 }
 
-module.exports = { Product, Category, deleteCat, createProduct };
+function getCategories() {
+  return Category.findAll({ include: [Product] });
+}
+
+module.exports = { Product, Category, deleteCat, createProduct, getCategories };
