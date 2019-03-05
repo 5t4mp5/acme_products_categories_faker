@@ -28,7 +28,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run webpack node ./server/index.js",
+    "start": "node ./server/index.js",
     "heroku-postbuild": "webpack -p",
     "webpack": "webpack",
     "webpack:dev": "npm run webpack -- --mode=development --watch",
