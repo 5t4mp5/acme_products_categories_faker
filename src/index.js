@@ -15,8 +15,10 @@ class Main extends Component {
       .then(categories => this.setState({ categories }))
       .catch(ex => console.error(ex.message));
   }
-  render() {
+  componentDidUpdate() {
     this.componentDidMount();
+  }
+  render() {
     return (
       <div id="main">
         <div className="container">
